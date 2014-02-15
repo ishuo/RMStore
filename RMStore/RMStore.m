@@ -302,14 +302,14 @@ typedef void (^RMStoreSuccessBlock)();
 
 - (void)removeStoreObserver:(id<RMStoreObserver>)observer
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:observer name:RMSKProductsRequestFailed object:self];
-    [[NSNotificationCenter defaultCenter] removeObserver:observer name:RMSKProductsRequestFinished object:self];
-    [[NSNotificationCenter defaultCenter] removeObserver:observer name:RMSKPaymentTransactionFailed object:self];
-    [[NSNotificationCenter defaultCenter] removeObserver:observer name:RMSKPaymentTransactionFinished object:self];
-    [[NSNotificationCenter defaultCenter] removeObserver:observer name:RMSKRefreshReceiptFailed object:self];
-    [[NSNotificationCenter defaultCenter] removeObserver:observer name:RMSKRefreshReceiptFinished object:self];
-    [[NSNotificationCenter defaultCenter] removeObserver:observer name:RMSKRestoreTransactionsFailed object:self];
-    [[NSNotificationCenter defaultCenter] removeObserver:observer name:RMSKRestoreTransactionsFinished object:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:observer name:RMSKProductsRequestFailed object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:observer name:RMSKProductsRequestFinished object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:observer name:RMSKPaymentTransactionFailed object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:observer name:RMSKPaymentTransactionFinished object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:observer name:RMSKRefreshReceiptFailed object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:observer name:RMSKRefreshReceiptFinished object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:observer name:RMSKRestoreTransactionsFailed object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:observer name:RMSKRestoreTransactionsFinished object:nil];
 }
 
 // Private
@@ -318,7 +318,7 @@ typedef void (^RMStoreSuccessBlock)();
 {
     if ([observer respondsToSelector:aSelector])
     {
-        [[NSNotificationCenter defaultCenter] addObserver:observer selector:aSelector name:notificationName object:self];
+        [[NSNotificationCenter defaultCenter] addObserver:observer selector:aSelector name:notificationName object:nil];
     }
 }
 
